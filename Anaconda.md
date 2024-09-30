@@ -71,5 +71,14 @@ conda install matplotlib
 # via command line option
 conda install --name myenvironment matplotlib
 ```
-
+### Remove environments
+List all environments are created:
+```
+conda env list
+```
+Remove:
+```
+conda deactivate
+conda remove --name <name_env> --all
+```
 
