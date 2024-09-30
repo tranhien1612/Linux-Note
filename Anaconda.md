@@ -1,6 +1,7 @@
 # Anaconda
 
 ## Install
+### Install
 ```
 sudo apt update
 
@@ -21,11 +22,7 @@ After Install, add PATH into ```bashrc``` file :
 source ~/.bashrc
 ```
 
-Check anaconda: ```conda info```
-
-Update anaconda version: ```conda update conda```
-
-Uninstall
+### Uninstall
 ```
 conda install anaconda-clean
 anaconda-clean
@@ -33,6 +30,17 @@ rm -rf ~/anaconda3
 
 # Remove path in .bashrc file
 nano ~/.bashrc
+```
+
+### Check and Update
+Check anaconda: 
+```
+conda info
+```
+
+Update anaconda version: 
+```
+conda update conda
 ```
 
 ## Using
