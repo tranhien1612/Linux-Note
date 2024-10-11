@@ -20,8 +20,9 @@ sudo sysctl -w net.ipv4.ip_forward=1
 
 Forward package from eth0 to wlan0
 ```
-sudo iptables -A FORWARD --in-interface eth0 -j ACCEPT
-sudo iptables --table nat -A POSTROUTING --out-interface wlan0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth0 -j ACCEPT
+iptables -A FORWARD -i wlan0 -o eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
 ```
 
 ## To device connected to laptop
