@@ -1,10 +1,10 @@
 
-
+```
+net.ipv4.ip_forward = 1
 iptables -A FORWARD -i wlan0 -o br0 -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A FORWARD -i br0 -o wlan0 -j ACCEPT
 iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
-net.ipv4.ip_forward = 1
-
+```
 
 # Forward from a laptop's eth0 to wlan0
 ## To laptop
