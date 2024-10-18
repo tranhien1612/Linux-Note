@@ -1,6 +1,11 @@
-Use iptables to setup data forwarding (wlan0 to eth0)
+
+Enable IPv4 packet forwarding
 ```
 net.ipv4.ip_forward = 1
+```
+
+Use iptables to setup data forwarding (wlan0 to eth0)
+```
 iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
 iptables -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
