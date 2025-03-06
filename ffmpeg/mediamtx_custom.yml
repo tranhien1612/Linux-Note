@@ -1,0 +1,4 @@
+paths:
+  stream:
+    runOnInit: ffmpeg -f v4l2 -input_format nv12 -video_size 640x512 -framerate 30 -i /dev/video0 -c:v libx264 -preset ultrafast -tune zerolatency -b:v 5M -f rtsp rtsp://localhost:8554/stream
+    runOnInitRestart: yes
