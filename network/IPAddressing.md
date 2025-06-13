@@ -45,3 +45,23 @@ The configuration can then be applied using the netplan command.
 ```
 sudo netplan apply
 ```
+
+
+## Note
+Check eno4 is managered by: ```networkctl status eno4```
+
+Check netplan config file: ```cd /etc/netplan/```
+if in `.yaml` file has ```renderer: networkd``` , disable eno4 in this file
+
+Using `systemd-networkd` to config ip static:
+
+Create `/etc/systemd/network/20-en04.network
+```
+[Match]
+Name=eno4
+
+[Network]
+Address=192.168.1.4/24
+Gateway=192.168.1.1
+DNS=8.8.8.8
+```
