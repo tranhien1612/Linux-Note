@@ -48,14 +48,20 @@ sudo netplan apply
 
 
 ## Note
-Check eno4 is managered by: ```networkctl status eno4```
+Check eno4 is managered by: 
+```
+networkctl status eno4
+```
 
 Check netplan config file: ```cd /etc/netplan/```
 if in `.yaml` file has ```renderer: networkd``` , disable eno4 in this file
 
+- if using `netplan` -> delete /etc/systemd/network/20-eno4.network.
+- if using `/etc/systemd/network` -> delete eno4 in netplan file
+
 Using `systemd-networkd` to config ip static:
 
-Create `/etc/systemd/network/20-en04.network
+Create `/etc/systemd/network/20-eno4.network
 ```
 [Match]
 Name=eno4
@@ -65,3 +71,4 @@ Address=192.168.1.4/24
 Gateway=192.168.1.1
 DNS=8.8.8.8
 ```
+if using 
